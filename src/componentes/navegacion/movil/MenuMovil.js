@@ -60,7 +60,7 @@ const MenuMovil = (props) => {
             <Collapse component="li" in={openAdmin} timeout="auto" unmountOnExit>
                 <List disablePadding>
                     <ListItem button className={classes.listSubItem} onClick={props.clickHandler}>
-                        <Link className={classes.linkAppBarMobile} to="/">
+                        <Link className={classes.linkAppBarMobile} to="/admin/usuarios">
                             <ListItemIcon className={classes.listItemIcon}>
                                 <Icon>group</Icon>
                             </ListItemIcon>
@@ -68,7 +68,7 @@ const MenuMovil = (props) => {
                         </Link>
                     </ListItem>
                     <ListItem button className={classes.listSubItem} onClick={props.clickHandler}>
-                        <Link className={classes.linkAppBarMobile} to="/">
+                        <Link className={classes.linkAppBarMobile} to="/admin/listaProductos">
                             <ListItemIcon className={classes.listItemIcon}>
                                 <Icon>storefront</Icon>
                             </ListItemIcon>
@@ -90,7 +90,7 @@ const MenuMovil = (props) => {
             {/* fin admin */}
 
             <ListItem button className={classes.listItem} onClick={props.clickHandler}>
-                        <Link className={classes.linkAppBarMobile} to="/carrito">
+                        <Link className={classes.linkAppBarMobile} to="/admin/listaPedidos">
                                 <ListItemIcon className={classes.listItemIcon}>
                                      <Icon>shopping_cart</Icon>
                                 </ListItemIcon>
