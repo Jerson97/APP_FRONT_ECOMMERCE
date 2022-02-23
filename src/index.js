@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Satateprovider } from './contexto/store';
+import { initialState } from './contexto/initialState';
+import {mainReducer} from './contexto/reducers'
 
 ReactDOM.render(
   <React.StrictMode>
+
+    <Satateprovider initialSatate={initialState} reducer={mainReducer}>
     <App />
+    </Satateprovider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,9 +1,11 @@
 import { Avatar, Button, Icon, ListItemIcon, ListItemText, Menu, MenuItem } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../../../contexto/store';
 import useStyles from '../../../theme/useStyles';
 
 const MenuCliente = () => {
+    const [ {sesionUsuario}, dispatch] = useStateValue();
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -31,7 +33,9 @@ const MenuCliente = () => {
                     className={classes.avatarPerfilAppBar}
                     src="https://newathletic.vteximg.com.br/arquivos/ids/159584-1000-1000/NK8006B.jpg?v=637559958910930000"
                     />
-                    Jhon Peralta
+                    { sesionUsuario 
+                    ? (sesionUsuario.autenticado ? sesionUsuario.usuario.nombre + ' ' + sesionUsuario.usuario.apellido : "No esta en sesion")  
+                    : "No esta en sesion"}
                     <Icon>keyboard_arrow_down</Icon>
                 </div>
             </Button>
