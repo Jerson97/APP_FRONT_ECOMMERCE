@@ -3,8 +3,11 @@ import { Pagination } from '@material-ui/lab';
 import React, { useEffect, useState } from 'react';
 import { getProductos } from '../../actions/ProductoAction';
 import useStyles from '../../theme/useStyles';
+import {useStateValue} from '../../contexto/store';
 
 const Producto = (props) => {
+
+    const [ {sesionCarritoCompra}, dispatch] = useStateValue();
 
     const [requestProductos, setRequestproductos] = useState({
         pageIndex: 1,
@@ -37,8 +40,11 @@ const Producto = (props) => {
     },[requestProductos]);
 
     //const miArray = ProductoArray;
-    const verProducto = (id) => {
-        props.history.push("/detalleProducto/" + id);
+    const verProducto = async (item) => {
+
+        //await addItem(sesionCarritoCompra, item, dispatch);
+
+        props.history.push("/detalleProducto/" + item.id);
     }
 
     const classes = useStyles();
@@ -69,7 +75,7 @@ const Producto = (props) => {
                             <Typography variant="h6" className={classes.text_card}>
                                 {data.nombre}
                             </Typography>
-                            <Button variant="contained" color="primary" fullWidth onClick={() => verProducto(data.id)}>
+                            <Button variant="contained" color="primary" fullWidth onClick={() => verProducto(data)}>
                                 MAS DETALLES
                             </Button>
                         </CardContent>
